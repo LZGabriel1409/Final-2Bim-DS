@@ -75,20 +75,14 @@ public class App {
             return;
         }
 
-        StringBuilder relatorio = new StringBuilder();
-        relatorio.append("--- RELATÓRIO DA FROTA ---\n\n"
-        );
+        String relatorio = "--- RELATÓRIO DA FROTA ---\n\n";
 
         for (Veiculo v : frota) {
-            relatorio.append(v.toString());
-
-            relatorio.append("\nFrete Simulado (100 km): R$ ");
-
-            relatorio.append(String.format("%.2f", v.calcularCustoFrete(100)));
-
-            relatorio.append("\n---------------------------------\n");
+            relatorio += v.toString();
+            relatorio += "\nFrete Simulado (100 km): R$ " + String.format("%.2f", v.calcularCustoFrete(100));
+            relatorio += "\n---------------------------------------------------\n";
         }
 
-        JOptionPane.showMessageDialog(null, relatorio.toString());
+        JOptionPane.showMessageDialog(null, relatorio);
     }
 }
